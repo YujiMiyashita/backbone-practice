@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>backbone.js practice</title>
+    <link rel="stylesheet" href="assets/base.css">
+  </head>
+  <body>
+    <section id="todoapp">
+      <header id="header">
+        <h1>TODOリスト</h1>
+        <input id="new-todo" placeholder="することを入力してください" autofocus>
+      </header>
+      <section id="main">
+        <input id="toggle-all" type="checkbox">
+        <label for="toggle-all">全て完了済みにする</label>
+        <ul id="todo-list"></ul>
+      </section>
+      <footer id="footer"></footer>
+    </section>
+
+    <script type="text/template" id="item-template">
+      <div class="view">
+        <input type="checkbox" class="toggle" <%= completed ? 'checked' : ''%>>
+        <label><%- title %></label>
+        <button class="destroy"></button>
+      </div>
+      <input class="edit" value="<%- title %>">
+    </script>
+
+    <script type="text/template" id="stats-template">
+      <% if (completed) { %>
+        <button id="clear-completed">完了済みの項目を消去
+        (<%= completed %>件)</button>
+      <% } %>
+
+      <span id="todo-count">残り<strong><%= remaining %></strong>件</span>
+      <ul id="filters">
+        <li>
+          <a class="selected" href="#/">全て</a>
+        </li>
+        <li>
+          <a href="#/active">未了</a>
+        </li>
+        <li>
+          <a href="#/completed">完了済み</a>
+        </li>
+      </ul>
+    </script>
+
+    <script src="js/lib/jquery-min.js"></script>
+    <script src="js/lib/underscore-min.js"></script>
+    <script src="js/lib/backbone-min.js"></script>
+    <script src="js/lib/backbone.localStorage.js"></script>
+    <script src="js/models/todo.js"></script>
+    <script src="js/collections/todos.js"></script>
+    <script src="js/views/todos.js"></script>
+    <script src="js/views/app.js"></script>
+    <script src="js/routers/router.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
