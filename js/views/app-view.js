@@ -44,7 +44,6 @@ var app = app || {};
 			// from being re-rendered for every model. Only renders when the 'reset'
 			// event is triggered at the end of the fetch.
 			app.todos.fetch({reset: true});
-			console.log(this);
 			console.log('initialized AppView');
 		},
 
